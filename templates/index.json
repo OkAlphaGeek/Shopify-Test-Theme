@@ -12,6 +12,7 @@
     "image": {
       "type": "image",
       "settings": {
+        "image": "shopify:\/\/shop_images\/Eye.jpg"
       }
     }
   },
