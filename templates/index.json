@@ -9,8 +9,14 @@
 */
 {
   "sections": {
+    "image": {
+      "type": "image",
+      "settings": {
+        "image": ""
+      }
+    }
   },
   "order": [
-
+    "image"
   ]
 }
