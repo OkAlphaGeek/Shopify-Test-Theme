@@ -1,5 +1,7 @@
-<div class="image-section">
-  {{ section.settings.image | image_url: width: 300 | image_tag }}
+<div class="image-section section-{{ section.id }}">
+  <div class="image-section-media">
+    {{ section.settings.image | image_url: width: 2000 | image_tag }}
+  </div>
 </div>
 
 {% schema %}
@@ -11,6 +13,10 @@
         "type": "image_picker",
         "id": "image",
         "label": "Image"
+      }, {
+        "type": "text",
+        "id": "text",
+        "label": "Text"
       }
     ],
     "presets": [

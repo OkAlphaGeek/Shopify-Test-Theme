@@ -1,18 +1,56 @@
-<div class="header">
-  <div class="header-inner">
-    <div class="header-logo">
+{% assign logo_with = section.settings.logo_width %}
+
+{% capture logo %}
+  <div class="header-logo">
+    {% if section.settings.logo != blank %}
+      {{ section.settings.logo | image_url: width: logo_with | image_tag }}
+    {% else %}
       {{ shop.name }}
-    </div>
-    <div class="header-nav">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="header-icons">
-      <a href="#">I</a>
-      <a href="#">C</a>
-      <a href="#">S</a>
-    </div>
+    {% endif %}
+  </div>
+{%  endcapture %}
+
+{% capture nav %}
+  <div class="header-nav">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+{%  endcapture %}
+
+{% capture icons %}
+  <div class="header-icons">
+    <a href="#">I</a>
+    <a href="#">C</a>
+    <a href="#">S</a>
+  </div>
+{%  endcapture %}
+
+<div class="header">
+  <div class="header-inner logo-{{ section.settings.logo_position }}">
+    {% if section.settings.logo_position == 'left' %}
+      {{ logo }}
+      {{ nav }}
+      {{ icons }}
+    {% endif %}
+    {% if section.settings.logo_position == 'center' %}
+      {{ nav }}
+      {{ logo }}
+      {{ icons }}
+    {% endif %}
+    {% if section.settings.logo_position == 'right' %}
+      {{ nav }}
+      {{ icons }}
+      {{ logo }}
+
+    {% endif %}
+    {% if section.settings.logo_position == 'top' %}
+      {{ logo }}
+      <div class="header-row">
+        {{ nav }}
+        {{ icons }}
+      </div>
+    {% endif %}
   </div>
 </div>
 
@@ -21,9 +59,42 @@
     "name": "Header",
     "settings": [
       {
-        "type": "header",
-        "content": "Header information"
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      }, {
+        "type": "range",
+        "id": "logo_width",
+        "min": 200,
+        "max": 300,
+        "step": 1,
+        "unit": "px",
+        "default": 200,
+        "label": "Logo Width"
+      }, {
+        "type": "select",
+        "id": "logo_position",
+        "label": "Logo Position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }, {
+            "value": "top",
+            "label": "Top"
+          }
+        ],
+        "default": "left"
       }
-    ]
+    ],
+    "enabled_on": {
+      "templates": ["index"]
+    }
   }
 {% endschema %}

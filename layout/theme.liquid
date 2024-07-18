@@ -8,10 +8,10 @@
     {{ 'custom.css' | asset_url | stylesheet_tag }}
   </head>
   <body>
-    {{ section 'header' }}
+    {% section 'header' %}
     <div class="main-content">
       {{ content_for_layout }}
     </div>
-    {{ section 'footer' }}
+    {% section 'footer' %}
   </body>
 </html>
