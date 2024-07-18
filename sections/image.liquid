@@ -1,5 +1,7 @@
+{% assign image = 'https://cdn.shopify.com/s/files/1/0630/8754/2408/files/Eye2.jpg' %}
+
 <div class="image-section">
-  {{ section.settings.image | image_url: width: 400 | image_tag: width: 300 }}
+  {{ image | image_url: width: 300 | image_tag }}
 </div>
 
 {% schema %}
