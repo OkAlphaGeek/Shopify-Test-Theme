@@ -2,5 +2,21 @@
   <img
     src="{{ section.settings.image | image_url: width: '2000' }}"
     alt=""
+    width="100%"
+    height="auto"
     class="image-section-media">
 </div>
+
+{% schema %}
+  {
+    "tag": "section",
+    "name": "Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ]
+  }
+{% endschema %}
