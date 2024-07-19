@@ -1,4 +1,17 @@
-{% assign logo_with = section.settings.logo_width %}
+{% style %}
+
+{% endstyle %}
+
+{% liquid
+  assign logo_with = section.settings.logo_width
+  assign menu_type = section.settings.menu_type
+  if menu_type == 'dropdown'
+    assign menu_type = menu_type
+  else if menu_type == 'mega-menu'
+    assign menu_type = menu_type
+  endif
+%}
+
 
 {% capture logo %}
   <div class="header-logo">
@@ -10,24 +23,35 @@
   </div>
 {%  endcapture %}
 
-{% capture nav %}
-  <div class="header-nav">
-    {% for link in section.settings.menu.links %}
-      <div class="header-nav-item">
-        <a href="#">
-          <span>{{ link.title }}</span>
-        </a>
-        {% for childlink in link.links %}
-          <div class="child-link">
-            <a href="#">
-              
-            </a>
+{% capture nav %}  
+  <nav class="header-navigation">
+   <ul>
+    {% for link in section.settings.menu.links %}     
+        <li class="sub-menu-parent {{ menu_type }}">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+          <div class="sub-menu{% if section.settings.drop_shadow %} with-shadow{% endif %}">
+          <ul>
+            {% for childlink in link.links %}
+            <li>
+              <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+              {% if childlink.links.size > 0 %}
+                <ul class="sub-sub-menu">
+                  {% for grandchildlink in childlink.links %}
+                  <li>
+                    <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
+                  </li>               
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>           
+            {% endfor %}
+          </ul>
           </div>
-        {%  endfor %}
-      </div>
+        </li>       
     {% endfor %}
-  </div>
-{%  endcapture %}
+   </ul>
+ </nav>
+{% endcapture %}
 
 {% capture icons %}
   <div class="header-icons">
@@ -73,7 +97,8 @@
         "type": "image_picker",
         "id": "logo",
         "label": "Logo"
-      }, {
+      },
+      {
         "type": "range",
         "id": "logo_width",
         "min": 200,
@@ -82,7 +107,8 @@
         "unit": "px",
         "default": 200,
         "label": "Logo Width"
-      }, {
+      },
+      {
         "type": "select",
         "id": "logo_position",
         "label": "Logo Position",
@@ -102,10 +128,33 @@
           }
         ],
         "default": "left"
-      }, {
+      },
+      {
         "type": "link_list",
         "id": "menu",
         "label": "Menu"
+      }, {
+        "type": "select",
+        "id": "menu_type",
+        "label": "Menu Type",
+        "options": [
+          {
+            "value": "dropdown",
+            "label": "Dropdown"
+          }, {
+            "value": "mega-menu",
+            "label": "Mega Menu"
+          }, {
+            "value": "burger",
+            "label": "Burger"
+          }
+        ],
+        "default": "dropdown"
+      }, {
+        "type": "checkbox",
+        "id": "drop_shadow",
+        "label": "Enable Drop Shadow",
+        "default": true
       }
     ],
     "enabled_on": {
