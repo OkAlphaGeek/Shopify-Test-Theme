@@ -12,9 +12,20 @@
 
 {% capture nav %}
   <div class="header-nav">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    {% for link in section.settings.menu.links %}
+      <div class="header-nav-item">
+        <a href="#">
+          <span>{{ link.title }}</span>
+        </a>
+        {% for childlink in link.links %}
+          <div class="child-link">
+            <a href="#">
+              
+            </a>
+          </div>
+        {%  endfor %}
+      </div>
+    {% endfor %}
   </div>
 {%  endcapture %}
 
@@ -91,6 +102,10 @@
           }
         ],
         "default": "left"
+      }, {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu"
       }
     ],
     "enabled_on": {
