@@ -2,9 +2,9 @@
   <picture class="image-section-media">
     <source media="(min-width: 768px)" srcset="{{ section.settings.image | image_url: width: 2000 }}" witdh="100%" height="auto">
     {% if section.settings.mobi_image != blank %}
-      <img src="{{ section.settings.mobi_image | image_url: width: 800 }}" width="auto" height="auto">
+      <img src="{{ section.settings.mobi_image | image_url: width: 800 }}" width="100%" height="auto">
     {% else %}
-      <img src="{{ section.settings.image | image_url: width: 800 }}" width="auto" height="auto">
+      <img src="{{ section.settings.image | image_url: width: 800 }}" width="100%" height="auto">
     {% endif %}
   </picture>
 </div>
