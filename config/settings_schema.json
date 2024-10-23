@@ -57,6 +57,12 @@
             },
             {
                 "type": "text",
+                "id": "subheading_font_size",
+                "default": "24",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
                 "id": "body_font_size",
                 "default": "16",
                 "label": "Body"
