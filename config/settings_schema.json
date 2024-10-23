@@ -19,6 +19,26 @@
                 "unit": "px",
                 "default": 1400,
                 "label": "Page Width"
+            },
+            {
+                "type": "range",
+                "id": "page_width_padding",
+                "min": 0,
+                "max": 30,
+                "step": 2,
+                "unit": "px",
+                "default": 20,
+                "label": "Page Width - Padding"
+            },
+            {
+                "type": "range",
+                "id": "page_width_full_padding",
+                "min": 0,
+                "max": 30,
+                "step": 2,
+                "unit": "px",
+                "default": 20,
+                "label": "Page Width Full - Padding"
             }
         ]
     }

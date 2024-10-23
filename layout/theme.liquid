@@ -6,6 +6,9 @@
     <title>{{ shop.name }}</title>
     {{ content_for_header }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
+    {% style %}
+      {% render 'css-variables' %}
+    {% endstyle %}
   </head>
   <body>
     {% section 'header' %}

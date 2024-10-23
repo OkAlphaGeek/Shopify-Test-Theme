@@ -7,7 +7,11 @@ body {
 .page-width {
 	max-width: var(--page-width);
 	margin: 0 auto;
-	padding: 0 15px;
+	padding: 0 var(--page-width-padding);
+}
+.page-width-full {
+	max-width: 100%;
+	padding: 0 var(--page-width-full-padding);
 }
 
 /*************************/
