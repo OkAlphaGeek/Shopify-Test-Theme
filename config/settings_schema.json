@@ -46,10 +46,20 @@
         "name": "Fonts",
         "settings": [
             {
+                "type": "header",
+                "content": "Font Sizing"
+              },
+            {
+                "type": "text",
+                "id": "heading_font_size",
+                "default": "48",
+                "label": "Heading"
+            },
+            {
                 "type": "text",
                 "id": "body_font_size",
                 "default": "16",
-                "label": "Body Font - Size"
+                "label": "Body"
             }
         ]
     }
