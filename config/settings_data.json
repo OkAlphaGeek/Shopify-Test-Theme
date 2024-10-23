@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "body_font_size": "40",
+    "body_font_size": "16",
     "sections": {
       "header": {
         "type": "header",
