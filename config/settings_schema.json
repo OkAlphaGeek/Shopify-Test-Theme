@@ -24,7 +24,7 @@
                 "type": "range",
                 "id": "page_width_padding",
                 "min": 0,
-                "max": 30,
+                "max": 40,
                 "step": 2,
                 "unit": "px",
                 "default": 20,
@@ -34,11 +34,22 @@
                 "type": "range",
                 "id": "page_width_full_padding",
                 "min": 0,
-                "max": 30,
+                "max": 40,
                 "step": 2,
                 "unit": "px",
                 "default": 20,
                 "label": "Page Width Full - Padding"
+            }
+        ]
+    },
+    {
+        "name": "Fonts",
+        "settings": [
+            {
+                "type": "text",
+                "id": "body_font_size",
+                "default": "16",
+                "label": "Body Font - Size"
             }
         ]
     }

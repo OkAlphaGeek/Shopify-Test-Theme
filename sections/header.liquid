@@ -116,13 +116,16 @@
           {
             "value": "left",
             "label": "Left"
-          }, {
+          }, 
+          {
             "value": "center",
             "label": "Center"
-          }, {
+          }, 
+          {
             "value": "right",
             "label": "Right"
-          }, {
+          }, 
+          {
             "value": "top",
             "label": "Top"
           }
@@ -133,7 +136,8 @@
         "type": "link_list",
         "id": "menu",
         "label": "Menu"
-      }, {
+      }, 
+      {
         "type": "select",
         "id": "menu_type",
         "label": "Menu Type",
@@ -141,21 +145,48 @@
           {
             "value": "dropdown",
             "label": "Dropdown"
-          }, {
+          }, 
+          {
             "value": "mega-menu",
             "label": "Mega Menu"
-          }, {
+          }, 
+          {
             "value": "burger",
             "label": "Burger"
           }
         ],
         "default": "dropdown"
-      }, {
+      }, 
+      {
         "type": "checkbox",
         "id": "drop_shadow",
         "label": "Enable Drop Shadow",
         "default": true
-      }
+      },
+      {
+        "type": "header",
+        "content": "Section Layout"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 40,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 20
+      }   
     ],
     "enabled_on": {
       "templates": ["index"]
