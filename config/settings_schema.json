@@ -6,5 +6,20 @@
         "theme_author": "Sheldon",
         "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
         "theme_support_url": "https://support.shopify.com/"
+    },
+    {
+        "name": "Layout",
+        "settings": [
+            {
+                "type": "range",
+                "id": "page_width",
+                "min": 1000,
+                "max": 1600,
+                "step": 20,
+                "unit": "px",
+                "default": 1400,
+                "label": "Page Width"
+            }
+        ]
     }
 ]

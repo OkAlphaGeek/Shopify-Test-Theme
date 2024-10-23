@@ -1,9 +1,13 @@
+/*************************/
+/********* Base **********/
+/*************************/
 body {
 	margin: 0;
 }
-
-.main-content {
-	background-color: #292929;
+.page-width {
+	max-width: var(--page-width);
+	margin: 0 auto;
+	padding: 0 15px;
 }
 
 /*************************/
@@ -27,6 +31,10 @@ body {
 	display: flex;
 	justify-content: space-between;
 }
+.header-logo h1 {
+	margin: 0;
+}
+
 
 /*************************/
 /***** Section Image *****/

@@ -1,0 +1,4 @@
+:root {
+    --page-width: {{ settings.page_width }}px;
+}
+

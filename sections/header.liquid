@@ -18,7 +18,7 @@
     {% if section.settings.logo != blank %}
       {{ section.settings.logo | image_url: width: logo_with | image_tag }}
     {% else %}
-      {{ shop.name }}
+      <h1>{{ shop.name }}</h1>
     {% endif %}
   </div>
 {%  endcapture %}
