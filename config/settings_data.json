@@ -9,14 +9,14 @@
  */
 {
   "current": {
-    "body_font_size": "40",
+    "body_font_size": "16",
     "sections": {
       "header": {
         "type": "header",
         "settings": {
           "logo_width": 200,
           "logo_position": "left",
-          "menu": "",
+          "menu": "main-menu",
           "menu_type": "dropdown",
           "drop_shadow": true,
           "padding_top": 20,
