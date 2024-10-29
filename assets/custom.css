@@ -121,7 +121,7 @@ h1 {
 }
 .header-navigation > ul > li { 
 	display: inline-block; 
-	padding: 10px 25px;
+	padding: 0 25px;
 }
 .mega-menu .sub-menu {
 	display: flex;
