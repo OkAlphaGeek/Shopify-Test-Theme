@@ -1,10 +1,3 @@
-{% style %}
-  .header {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-  }
-{% endstyle %}
-
 {% liquid
   assign logo_with = section.settings.logo_width
   assign menu_type = section.settings.menu_type
@@ -36,9 +29,9 @@
 
 {% capture icons %}
   <div class="header-icons">
-    <a href="#">I</a>
-    <a href="#">C</a>
-    <a href="#">S</a>
+    <a href="#" class="icon-header">{% render 'icon-search' %}</a>
+    <a href="#" class="icon-header">{% render 'icon-account' %}</a>
+    <a href="#" class="icon-header icon-header-cart">{% render 'icon-cart' %}</a>
   </div>
 {%  endcapture %}
 

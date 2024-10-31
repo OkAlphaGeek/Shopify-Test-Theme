@@ -3,7 +3,14 @@
 /*************************/
 body {
 	margin: 0;
+	font-family: var(--body-font-family);
 	font-size: var(--body-font-size);
+	font-weight: var(--body-font-weight);
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--heading-font-family);
+	font-size: var(--heading-font-size);
+	font-weight: var(--heading-font-weight);
 }
 .page-width {
 	max-width: var(--page-width);
@@ -13,9 +20,6 @@ body {
 .page-width-full {
 	max-width: 100%;
 	padding: 0 var(--page-width-full-padding);
-}
-h1 {
-	font-size: var(--heading-font-size);
 }
 .heading {
 	font-size: var(--heading-font-size);
@@ -29,6 +33,8 @@ h1 {
 /*************************/
 .header {
 	position: relative;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .header-inner:not(.logo-top) {
 	display: flex;
@@ -48,6 +54,21 @@ h1 {
 .header-logo h1 {
 	margin: 0;
 	font-size: 20px;
+}
+.header-icons {
+	display: flex;
+}
+.header-icons .icon-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+}
+.header-icons .icon {
+	width: 20px;
+	height: 20px;
+	color: #000;
 }
 
 
@@ -108,8 +129,7 @@ h1 {
 }
 .header-navigation ul,
 .header-navigation ul li { 
-	list-style-type: none; 
-	padding: 0; 
+	list-style-type: none;  
 	margin: 0; 
 }
 .sub-menu {
@@ -119,9 +139,9 @@ h1 {
 	background: #FFF; 
 	text-align: center; 
 }
-.header-navigation > ul > li { 
+.sub-menu-parent { 
 	display: inline-block; 
-	padding: 0 25px;
+	padding: 15px 25px;
 }
 .mega-menu .sub-menu {
 	display: flex;

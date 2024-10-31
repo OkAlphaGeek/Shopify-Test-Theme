@@ -1,8 +1,19 @@
 :root {
+    {% comment %} Layout Settings {% endcomment %}
     --page-width: {{ settings.page_width }}px;
     --page-width-padding: {{ settings.page_width_padding }}px;
     --page-width-full_padding: {{ settings.page_width_full }}px;
 
+    {% comment %} Typography Settings {% endcomment %}
+    --heading-font-family: {{ settings.heading_font.family }};
+    --subheading-font-family: {{ settings.subheading_font.family }};
+    --body-font-family: {{ settings.body_font.family }};
+
+    --heading-font-weight: {{ settings.heading_font.weight }};
+    --subheading-font-weight: {{ settings.subheading_font.weight }};
+    --body-font-weight: {{ settings.body_font.weight }};
+
+    {% comment %} Font Size Settings {% endcomment %}
     --heading-font-size: {{ settings.heading_font_size }}px;
     --subheading-font-size: {{ settings.subheading_font_size }}px;
     --body-font-size: {{ settings.body_font_size }}px;
