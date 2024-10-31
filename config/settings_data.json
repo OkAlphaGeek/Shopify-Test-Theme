@@ -9,6 +9,9 @@
  */
 {
   "current": {
+    "heading_font": "questrial_n4",
+    "subheading_font": "questrial_n4",
+    "body_font": "questrial_n4",
     "body_font_size": "16",
     "sections": {
       "header": {
