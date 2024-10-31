@@ -7,19 +7,10 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "banner_image_yAjCL3": {
-      "type": "banner-image",
+    "section_banner_image_TWcwqn": {
+      "type": "section-banner-image",
       "settings": {
         "image": "shopify://shop_images/Eye2.jpg",
         "mobi_image": "shopify://shop_images/Placeholder.jpg",
@@ -28,6 +19,6 @@
     }
   },
   "order": [
-    "banner_image_yAjCL3"
+    "section_banner_image_TWcwqn"
   ]
 }
