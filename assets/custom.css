@@ -1,6 +1,4 @@
-/*************************/
 /********* Base **********/
-/*************************/
 body {
 	margin: 0;
 	font-family: var(--body-font-family);
@@ -27,10 +25,14 @@ h1, h2, h3, h4, h5, h6 {
 .subheading {
 	font-size: var(--subheading-font-size);
 }
+.uppercase {
+	text-transform: uppercase;
+}
+.center {
+	text-align: center;
+}
 
-/*************************/
 /******** Header *********/
-/*************************/
 .header {
 	position: relative;
 	padding-top: 5px;
@@ -71,11 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: #000;
 }
 
-
-/*************************/
 /***** Section Image *****/
-/*************************/
-
 .image-section-media img {
 	max-width: 100%;
 	height: 100%;
@@ -83,10 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 	display: block;
 }
 
-/*************************/
 /******* Navigation ******/
-/*************************/
-
 .sub-menu-parent.dropdown { 
 	position: relative; 
 }

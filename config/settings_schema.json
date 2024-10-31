@@ -49,19 +49,19 @@
                 "type": "font_picker",
                 "id": "heading_font",
                 "label": "Heading Font",
-                "default": "helvetica_n4"
+                "default": "questrial_n4"
             },
             {
                 "type": "font_picker",
                 "id": "subheading_font",
                 "label": "Subheading Font",
-                "default": "helvetica_n4"
+                "default": "questrial_n4"
             },
             {
                 "type": "font_picker",
                 "id": "body_font",
                 "label": "Body Font",
-                "default": "helvetica_n4"
+                "default": "questrial_n4"
             }
         ]
     },
@@ -69,27 +69,53 @@
         "name": "Fonts",
         "settings": [
             {
-                "type": "header",
-                "content": "Font Sizing"
-              },
-            {
                 "type": "text",
                 "id": "heading_font_size",
                 "default": "48",
-                "label": "Headings"
+                "label": "Heading Size"
+            },
+            {
+                "type": "range",
+                "id": "heading_weight",
+                "min": 100,
+                "max": 900,
+                "step": 100,
+                "unit": "px",
+                "default": 600,
+                "label": "Heading Weight"
             },
             {
                 "type": "text",
                 "id": "subheading_font_size",
                 "default": "24",
-                "label": "Subheadings"
+                "label": "Subheading Size"
+            },
+            {
+                "type": "range",
+                "id": "subheading_weight",
+                "min": 100,
+                "max": 900,
+                "step": 100,
+                "unit": "px",
+                "default": 600,
+                "label": "Subeading Weight"
             },
             {
                 "type": "text",
                 "id": "body_font_size",
                 "default": "16",
-                "label": "Body"
-            }
+                "label": "Body Size"
+            },
+            {
+                "type": "range",
+                "id": "body_weight",
+                "min": 100,
+                "max": 900,
+                "step": 100,
+                "unit": "px",
+                "default": 400,
+                "label": "Body Weight"
+            },
         ]
     }
 ]
