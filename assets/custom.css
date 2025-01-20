@@ -170,3 +170,14 @@ h1, h2, h3, h4, h5, h6 {
 .burger-icon.open .three {
 	transform: translateY(-9px) rotate(-45deg);
 }
+
+/******* Navigation ******/
+.pdp-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.pdp-gallery img {
+	max-width: 100%;
+	height: 100%;
+	display: block;
+}

@@ -9,8 +9,8 @@
  */
 {
   "sections": {
-    "banner_image_yAjCL3": {
-      "type": "banner-image",
+    "section_banner_image_TWcwqn": {
+      "type": "section-banner-image",
       "settings": {
         "image": "shopify://shop_images/Eye2.jpg",
         "mobi_image": "shopify://shop_images/Placeholder.jpg",
@@ -19,6 +19,6 @@
     }
   },
   "order": [
-    "banner_image_yAjCL3"
+    "section_banner_image_TWcwqn"
   ]
 }
