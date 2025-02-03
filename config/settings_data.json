@@ -18,7 +18,7 @@
         "type": "header",
         "settings": {
           "logo_width": 200,
-          "logo_position": "left",
+          "logo_position": "center",
           "menu": "main-menu",
           "menu_type": "burger",
           "drop_shadow": true,
