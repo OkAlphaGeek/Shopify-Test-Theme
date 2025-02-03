@@ -1,9 +1,15 @@
-<nav class="header-navigation">
+<nav class="header-navigation {{ menu_type }}">
     <ul>
      {% for link in section.settings.menu.links %}     
          <li class="sub-menu-parent {{ menu_type }}">
-           <a href="{{ link.url }}">{{ link.title }}</a>
-           <div class="sub-menu{% if section.settings.drop_shadow %} with-shadow{% endif %}">
+           <a href="{{ link.url }}" {% if link.links != blank %}class="parent-link"{% endif %}>
+            {{ link.title }}
+            {% if link.links != blank %}
+              {% render "icon-chevron" %}
+            {% endif %}
+          </a>
+          {% if link.links != blank %}
+           <div class="sub-menu{% unless menu_type == 'burger' %}{% if section.settings.drop_shadow %} with-shadow{% endif %}{% endunless %}">
            <ul>
              {% for childlink in link.links %}
              <li>
@@ -21,6 +27,7 @@
              {% endfor %}
            </ul>
            </div>
+          {% endif %}
          </li>       
      {% endfor %}
     </ul>
