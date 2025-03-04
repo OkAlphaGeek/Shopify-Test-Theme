@@ -48,28 +48,41 @@
 
 <div class="header page-width">
   <div class="header-inner logo-{{ section.settings.logo_position }}">
-    {% if section.settings.logo_position == 'left' %}
-      {{ logo }}
-      {{ nav }}
-      {{ icons }}
-    {% endif %}
-    {% if section.settings.logo_position == 'center' %}
-      {{ nav }}
-      {{ logo }}
-      {{ icons }}
-    {% endif %}
-    {% if section.settings.logo_position == 'right' %}
-      {{ nav }}
-      {{ icons }}
-      {{ logo }}
-
-    {% endif %}
-    {% if section.settings.logo_position == 'top' %}
-      {{ logo }}
-      <div class="header-row">
+    {% if section.settings.menu_type == 'burger' %}
+      {% if section.settings.logo_position == 'top' %}
+       {{ logo }}
+        <div class="header-row">
+          {{ nav }}
+          {{ icons }}
+        </div>
+      {% else %}
+        {{ nav }}
+        {{ logo }}
+        {{ icons }}
+      {% endif %}
+    {% else %}
+      {% if section.settings.logo_position == 'left' %}
+        {{ logo }}
         {{ nav }}
         {{ icons }}
-      </div>
+      {% endif %}
+      {% if section.settings.logo_position == 'center' %}
+        {{ nav }}
+        {{ logo }}
+        {{ icons }}
+      {% endif %}
+      {% if section.settings.logo_position == 'right' %}
+        {{ nav }}
+        {{ icons }}
+        {{ logo }}
+      {% endif %}
+      {% if section.settings.logo_position == 'top' %}
+        {{ logo }}
+        <div class="header-row">
+          {{ nav }}
+          {{ icons }}
+        </div>
+      {% endif %}
     {% endif %}
   </div>
 </div>
