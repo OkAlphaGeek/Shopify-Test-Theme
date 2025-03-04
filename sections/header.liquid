@@ -46,7 +46,7 @@
   </div>
 {%  endcapture %}
 
-<div class="header page-width">
+<div class="header page-width {% if menu_type == 'dropdown' %} relative{% endif %}">
   <div class="header-inner logo-{{ section.settings.logo_position }}">
     {% if section.settings.menu_type == 'burger' %}
       {% if section.settings.logo_position == 'top' %}
@@ -90,6 +90,7 @@
 {% schema %}
   {
     "name": "Header",
+    "class": "section-header",
     "settings": [
       {
         "type": "image_picker",

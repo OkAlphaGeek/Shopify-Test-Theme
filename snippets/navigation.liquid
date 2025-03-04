@@ -1,34 +1,49 @@
 <nav class="header-navigation {{ menu_type }}">
-    <ul>
-     {% for link in section.settings.menu.links %}     
-         <li class="sub-menu-parent {{ menu_type }}">
-           <a href="{{ link.url }}" {% if link.links != blank %}class="parent-link"{% endif %}>
-            {{ link.title }}
-            {% if link.links != blank %}
-              {% render "icon-chevron" %}
-            {% endif %}
-          </a>
+  <ul>
+    {% for link in section.settings.menu.links %}
+      <li class="sub-menu-parent {{ menu_type }}">
+        <a
+          href="{{ link.url }}"
           {% if link.links != blank %}
-           <div class="sub-menu{% unless menu_type == 'burger' %}{% if section.settings.drop_shadow %} with-shadow{% endif %}{% endunless %}">
-           <ul>
-             {% for childlink in link.links %}
-             <li>
-               <a href="{{ childlink.url }}">{{ childlink.title }}</a>
-               {% if childlink.links.size > 0 %}
-                 <ul class="sub-sub-menu">
-                   {% for grandchildlink in childlink.links %}
-                   <li>
-                     <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
-                   </li>               
-                   {% endfor %}
-                 </ul>
-               {% endif %}
-             </li>           
-             {% endfor %}
-           </ul>
-           </div>
+            class="parent-link"
           {% endif %}
-         </li>       
-     {% endfor %}
-    </ul>
-  </nav>
+        >
+          {{ link.title }}
+          {% if link.links != blank and menu_type == 'burger' %}
+            {% render 'icon-chevron' %}
+          {% endif %}
+        </a>
+        {% if link.links != blank %}
+          <div class="sub-menu{% unless menu_type == 'burger' %}{% if section.settings.drop_shadow %} with-shadow{% endif %}{% endunless %}">
+            <ul {% if menu_type == 'mega-menu' %}class="mega-menu-grid{% if link.links.size < 5 %} menu-grid-{{ link.links.size }}{% else %} menu-grid-large{% endif %}"{% endif %}>
+              {% for childlink in link.links %}
+                <li>
+                  <a
+                    href="{{ childlink.url }}"
+                    class="sub-menu-link{% if childlink.links != blank %} child-link{% endif %}"
+                  >
+                    {{ childlink.title }}
+                    {% if childlink.links != blank and menu_type == 'burger' %}
+                      {% render 'icon-chevron' %}
+                    {% endif %}
+                  </a>
+                  {% if childlink.links.size > 0 %}
+                    <div class="sub-sub-menu">
+                      <ul>
+                        {% for grandchildlink in childlink.links %}
+                          <li>
+                            <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

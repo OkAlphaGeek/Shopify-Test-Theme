@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -7,18 +7,17 @@
     <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
-    
+
     {% style %}
       {% render 'css-variables' %}
     {% endstyle %}
   </head>
 
-  <body>  
+  <body>
     {% section 'header' %}
     <div class="main-content">
       {{ content_for_layout }}
     </div>
     {% section 'footer' %}
   </body>
-
 </html>
