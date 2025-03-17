@@ -43,6 +43,33 @@ h6 {
 .icon-chevron {
   transform: rotate(-90deg);
 }
+.link-animation {
+  position: relative;
+  text-decoration: none;
+}
+.link-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  border-radius: 5px;
+  height: 2px;
+  bottom: -1px;
+  left: 0;
+  background: currentcolor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.mega-menu .link-animation:not(.child-link):hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.burger .link-animation:hover::after, 
+.dropdown .link-animation:hover::after,
+.sub-menu-parent.burger .link-animation.open:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
 /******** Header *********/
 .header {
@@ -99,14 +126,21 @@ h6 {
 
 /******* Navigation ******/
 .header-navigation:not(.burger) .sub-menu {
-  /*visibility: hidden;
-  opacity: 0;*/
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
-  left: 0;
   width: 100%;
-  /*transform: translateY(-2em);
-  z-index: -1;*/
+  transform: translateY(-2em);
+  z-index: -1;
   transition: var(--timing);
+  top: 100%;
+	padding: 25px 0;
+}
+.header-navigation.mega-menu .sub-menu {
+  left: 0;
+}
+.header-navigation:not(.burger) a {
+  display: inline-block;
 }
 .sub-menu-parent:not(.burger):focus .sub-menu,
 .sub-menu-parent:not(.burger):focus-within .sub-menu,
@@ -116,6 +150,10 @@ h6 {
   z-index: 1;
   transform: translateY(0%);
   transition-delay: 0s, 0s, 0.3s;
+}
+.header-inner .header-navigation.dropdown .sub-menu {
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 .sub-menu-parent:not(.burger):hover .icon-chevron {
   transform: rotate(90deg);
@@ -191,10 +229,6 @@ h6 {
   text-align: center;
   padding: 0;
 }
-.header-navigation:not(.burger) .sub-menu {
-  top: 100%;
-	padding: 25px 0;
-}
 .mega-menu .sub-menu {
   display: flex;
 }
@@ -204,13 +238,14 @@ h6 {
 	text-decoration-thickness: 2px;
 	margin-bottom: 10px;
 }
-.mega-menu-grid .sub-sub-menu a {
+.mega-menu-grid .sub-sub-menu li {
 	padding: 5px 0;
 }
 .nav-burger {
   width: 25px;
   height: 21px;
   position: relative;
+  z-index: 1;
 }
 .burger-icon {
   display: flex;
@@ -245,10 +280,16 @@ h6 {
 .burger-menu {
   position: absolute;
   left: 0;
-  top: 100%;
-  width: 400px;
+  top: 0;
+  width: 100%;
   transform: translateX(-100%);
   transition: var(--timing);
+  box-shadow: 0px 0px 10px 0px #d3d3d37a;
+}
+@media screen and (min-width: 768px) {
+  .burger-menu {
+   max-width: 400px;
+  }
 }
 .nav-burger.open + .burger-menu {
   transform: translateX(0);
@@ -258,7 +299,7 @@ h6 {
   height: 100vh;
 }
 .header-navigation.burger {
-  padding: 25px;
+  padding: 55px 25px;
 }
 .header-navigation.burger a {
   padding-top: 20px;
@@ -293,6 +334,15 @@ h6 {
 .mega-menu .sub-menu > ul {
 	max-width: var(--page-width);
 	margin: auto;
+}
+.sub-menu-parent.dropdown {
+  position: relative;
+}
+.sub-menu-parent.dropdown .sub-menu {
+  min-width: 200px;
+}
+.sub-menu-parent.dropdown .sub-menu li {
+  padding: 5px 0;
 }
 
 /***** Section Image *****/

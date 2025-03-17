@@ -1,12 +1,49 @@
+{{ 'section-banner-image.css' | asset_url | stylesheet_tag }}
+
 <div class="image-section section-{{ section.id }}">
-  <picture class="image-section-media">
-    <source media="(min-width: 768px)" srcset="{{ section.settings.image | image_url: width: 2000 }}" witdh="100%" height="auto">
-    {% if section.settings.mobi_image != blank %}
-      <img src="{{ section.settings.mobi_image | image_url: width: 800 }}" width="100%" height="auto">
-    {% else %}
-      <img src="{{ section.settings.image | image_url: width: 800 }}" width="100%" height="auto">
-    {% endif %}
-  </picture>
+  <div class="image-section-inner">
+    <picture class="image-section-media">
+      {% comment %} Desktop Banner {% endcomment %}
+      {% if section.settings.mobi_image != blank %}
+        <source srcset="{{ section.settings.mobi_image | image_url }}" media="(max-width: 767px)">
+      {% endif %}
+      {% comment %} Mobile Banner {% endcomment %}
+      {% if section.settings.image != blank %}
+        <source srcset="{{ section.settings.image | image_url }}" media="(min-width: 768px)">
+      {% endif %}
+      {% comment %} Fallback Banner {% endcomment %}
+      {% if section.settings.image == blank and section.settings.mobi_image == blank %}
+        {{ 'lifestyle-1' | placeholder_svg_tag }}   
+      {% else %}
+        <img 
+          src="{{ section.settings.image | image_url }}" 
+          alt="{{ section.settings.alt_text | escape }}" 
+          width="100%" 
+          height="auto"
+          loading="lazy">
+      {% endif %}
+    </picture>
+    <div class="image-section-content">
+      <div class="image-section-content-inner">
+
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when "heading" %}
+              <h1>{{ block.settings.heading }}</h1>
+            {% when "subheading" %}
+              {{ block.settings.subheading }}
+            {% when "buttons" %}
+              <div class="button-wrapper">
+                <a href="{{ block.settings.button_1 }}">{{ block.settings.button_1_text }}</a>
+                {% if block.settings.button_2_text %}
+                  <a href="{{ block.settings.button_2 }}">{{ block.settings.button_2_text }}</a>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
 
 {% schema %}
@@ -23,17 +60,67 @@
         "type": "image_picker",
         "id": "mobi_image",
         "label": "Mobile Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "heading",
+        "name": "Heading",
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Heading Text"
+          },
+        ]
       },
       {
-        "type": "text",
-        "id": "text",
-        "label": "Text"
+        "type": "subheading",
+        "name": "Subheading",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "subheading",
+            "label": "Subheading",
+            "default": "<p>Subheading Text</p>"
+          }
+        ]
+      },
+      {
+        "type": "buttons",
+        "name": "Buttons",
+        "settings": [
+          {
+            "type": "url",
+            "id": "button_1",
+            "label": "Button Link"
+          },
+          {
+            "type": "text",
+            "id": "button_1_text",
+            "label": "Button Text",
+            "default": "Button Text"
+          },
+          {
+            "type": "url",
+            "id": "button_2",
+            "label": "Secondary Button Link"
+          },
+          {
+            "type": "text",
+            "id": "button_2_text",
+            "label": "Button Text",
+            "default": "Button Text"
+          }
+        ]
       }
     ],
     "presets": [
-      {
-        "name": "Banner Image"
-      }
-    ]
+    {
+      "name": "Banner Image"
+      
+    }
+  ]
   }
 {% endschema %}

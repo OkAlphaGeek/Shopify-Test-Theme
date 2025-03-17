@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-{
-    "sections": {
-        "main": {
-            "type": "main-product",
-            "settings": {},
-        }
-    },
-    "order": [
-        "main"
-    ]
-=======
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -29,5 +17,4 @@
     "order": [
         "main"
     ]
->>>>>>> 61998782f5396bfcf1086032f337dcb8b6379cc9
 }

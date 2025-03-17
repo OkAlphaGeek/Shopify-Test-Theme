@@ -2,11 +2,13 @@
   <ul>
     {% for link in section.settings.menu.links %}
       <li class="sub-menu-parent {{ menu_type }}">
-        <a
+        <a  
           href="{{ link.url }}"
+          class="link-animation
           {% if link.links != blank %}
-            class="parent-link"
+            parent-link
           {% endif %}
+           "
         >
           {{ link.title }}
           {% if link.links != blank and menu_type == 'burger' %}
@@ -20,7 +22,7 @@
                 <li>
                   <a
                     href="{{ childlink.url }}"
-                    class="sub-menu-link{% if childlink.links != blank %} child-link{% endif %}"
+                    class="sub-menu-link link-animation{% if childlink.links != blank %} child-link{% endif %}"
                   >
                     {{ childlink.title }}
                     {% if childlink.links != blank and menu_type == 'burger' %}
@@ -32,7 +34,7 @@
                       <ul>
                         {% for grandchildlink in childlink.links %}
                           <li>
-                            <a href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
+                            <a class="link-animation" href="{{ grandchildlink.url }}">{{ grandchildlink.title }}</a>
                           </li>
                         {% endfor %}
                       </ul>

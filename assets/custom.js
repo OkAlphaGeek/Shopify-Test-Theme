@@ -18,7 +18,6 @@ function initializeMenuAccordion(scope = document) {
     const clickedLink = e.target.closest("a");
     if (!clickedLink) return;
 
-    // Check if the clicked link has a submenu
     const subMenu = clickedLink.nextElementSibling;
     if (
       !subMenu ||
@@ -27,27 +26,29 @@ function initializeMenuAccordion(scope = document) {
     )
       return;
 
-    e.preventDefault(); // Prevent default link behavior
+    e.preventDefault();
 
-    // Close all other open menus at the same level
     const parentLi = clickedLink.closest("li");
     const parentUl = parentLi.closest("ul");
 
     parentUl.querySelectorAll(".sub-menu, .sub-sub-menu").forEach((menu) => {
       if (menu !== subMenu) {
+        clickedLink.classList.add("open")
         menu.classList.remove("open");
         menu.style.maxHeight = null;
       }
     });
 
-    // Toggle clicked submenu
     if (subMenu.classList.contains("open")) {
       subMenu.classList.remove("open");
       subMenu.style.maxHeight = null;
+      clickedLink.classList.remove("open")
     } else {
+      clickedLink.classList.add("open")
       subMenu.classList.add("open");
       subMenu.style.maxHeight = subMenu.scrollHeight + "px";
     }
+    console.log(clickedLink)
   });
 }
 
